@@ -1,12 +1,24 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ControleDeContatos.Models;
+using ControleDeContatos.Repositorio;
+using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace ControleDeContatos.Controllers
 {
+
     public class ContatoController : Controller
     {
-        public IActionResult Index()
+        private readonly IContatoRepositorio _contatoRepositorio;
+        public ContatoController(IContatoRepositorio contatoRepositorio)
         {
-            return View();
+            _contatoRepositorio = contatoRepositorio;
+        }
+
+        public IActionResult Index(ContatoModel contatoModel)
+        {
+            List<ContatoModel> contatos = _contatoRepositorio.BuscarTodos();
+
+            return View(contatos);
         }
 
         public IActionResult Criar()
@@ -18,9 +30,16 @@ namespace ControleDeContatos.Controllers
         {
             return View();
         }
-        public IActionResult Apagar()
+        public IActionResult ApagarConfirmacao()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Criar(ContatoModel contato)
+        {
+            _contatoRepositorio.Adicionar(contato);
+            return RedirectToAction("Index");
         }
     }
 }
