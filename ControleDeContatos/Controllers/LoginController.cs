@@ -28,7 +28,7 @@ namespace ControleDeContatos.Controllers
 
         public IActionResult Sair()
         {
-            _sessao.RemoverSessaoDoUsuario();
+            _sessao.RemoverSessaoUsuario();
 
             return RedirectToAction("Index", "Login");
         }
@@ -55,8 +55,10 @@ namespace ControleDeContatos.Controllers
 
                     TempData["MensagemErro"] = $"Usuário e/ou senha inválido(s). Por Favor, tente novamente.";
                 }
+
                 return View("Index");
             }
+
             catch (Exception erro)
             {
                 TempData["MensagemErro"] = $"Ops, não conseguimos realizar seu Login, Tente novamente, detalhe do erro: {erro.Message}";

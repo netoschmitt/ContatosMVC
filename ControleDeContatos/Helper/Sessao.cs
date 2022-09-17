@@ -6,19 +6,18 @@ namespace ControleDeContatos.Helper
 {
     public class Sessao : ISessao
     {
-
         private readonly IHttpContextAccessor _httpContext;
 
         public Sessao(IHttpContextAccessor httpContext)
         {
-            _httpContext = httpContext;   
+            _httpContext = httpContext;
         }
 
         public UsuarioModel BuscarSessaoDoUsuario()
         {
             string sessaoUsuario = _httpContext.HttpContext.Session.GetString("sessaoUsuarioLogado");
 
-            if(string.IsNullOrEmpty(sessaoUsuario)) return null;
+            if (string.IsNullOrEmpty(sessaoUsuario)) return null;
 
             return JsonConvert.DeserializeObject<UsuarioModel>(sessaoUsuario);
         }
@@ -30,9 +29,9 @@ namespace ControleDeContatos.Helper
             _httpContext.HttpContext.Session.SetString("sessaoUsuarioLogado", valor);
         }
 
-        public void RemoverSessaoDoUsuario()
+        public void RemoverSessaoUsuario()
         {
-            _httpContext.HttpContext.Session.Remove("sessaoUsuariologado");
+            _httpContext.HttpContext.Session.Remove("sessaoUsuarioLogado");
         }
     }
 }
