@@ -12,6 +12,7 @@ namespace ControleDeContatos.Repositorio
         UsuarioModel ListarPorId(int id);
         UsuarioModel Adicionar(UsuarioModel usuario);
         UsuarioModel Atualizar(UsuarioModel contato);
+        UsuarioModel AlterarSenha(AlterarSenhaModel alterarSenhaModel);
         bool Apagar(int id);
     }
 }
