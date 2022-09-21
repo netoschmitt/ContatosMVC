@@ -51,7 +51,7 @@ namespace ControleDeContatos.Controllers
                 if (apagado)
                 {
                     TempData["MensagemSucesso"] = "Contato Excluido com sucesso!";
-                    
+
                 }
                 else
                 {
@@ -88,7 +88,6 @@ namespace ControleDeContatos.Controllers
             }
             catch (System.Exception erro)
             {
-
                 TempData["MensagemErro"] = "Ops, não conseguimos cadastrar seu contato, tente novamente, detalhe do erro: " + erro.Message;
                 return RedirectToAction("Index");
             }
@@ -112,7 +111,6 @@ namespace ControleDeContatos.Controllers
             }
             catch (System.Exception erro)
             {
-
                 TempData["MensagemErro"] = "Ops, não conseguimos atualizar seu contato, tente novamente, detalhe do erro: " + erro.Message;
                 return RedirectToAction("Index");
             }
