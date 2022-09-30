@@ -1,0 +1,15 @@
+# Sistema de gerenciamento de Contatos_MVC
+- Sistema de Cadastro de Contatos em ASPNETCORE no Padrão MVC
+- Cadastro de Contatos EF migration + SQLServer
+- Validação de Forms/Dados msg modal
+- EF Migration +  SQLServer MS
+- Paginação e Busca com jquery datatable.net
+- CRUD + Tela de Login
+- Sessão de usuário logado
+- Filtros User Logado/Admin 
+- Bloqueio do user Padrão.
+- Criptografia de Senha usuários - Hash
+- Page Redefinir senha
+- Envio de Email Recuperação usando protocolo SMTP
+- Relacionamento entre tables Contatos e Usuarios
+- Modal Bootstrap e requisiçao p controller com javascript requisição AJAX
